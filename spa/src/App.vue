@@ -10,10 +10,11 @@
     <div class="currency container">
       <div class="currency__block currency__block_first">
         <span class="currency__choose">Выберите валюту</span>
-        <select name="" id="" class="currency__select">
-          <option value="">Bitcoin (BTC)</option>
-          <option value="">Ethereum (ETH)</option>
-          <option value="">US dollar (USD)</option>
+        <select name="" id="" class="currency__select"
+        v-model="currencySelectInput">
+          <option>Bitcoin (BTC)</option>
+          <option>Ethereum (ETH)</option>
+          <option>US dollar (USD)</option>
         </select>
         <input
           v-bind:value="currencyInput"
@@ -25,12 +26,11 @@
       <div class="currency__block second">
         <span class="currency__choose">Выберите валюту</span>
         <select name="" id="" class="currency__select"
-          v-bind:value="currencySelect"
-          @change="currencySelect = $event.target.value"
+          v-model="currencySelectOutput"
         >
-          <option value="">Bitcoin (BTC)</option>
-          <option value="">Ethereum (ETH)</option>
-          <option value="">US dollar (USD)</option>
+          <option>Bitcoin (BTC)</option>
+          <option>Ethereum (ETH)</option>
+          <option>US dollar (USD)</option>
       </select>
       <input 
         v-bind:value="currencyOutput"
@@ -46,12 +46,14 @@
       <div class="graph__choose">
         <!-- <div class="currency__choose"> -->
           <span class="currency__choose">Выберите валюту</span>
-          <select name="" id="" class="currency__select">
-            <option value="">Bitcoin (BTC)</option>
-            <option value="">Ethereum (ETH)</option>
-            <option value="">US dollar (USD)</option>
+          <select name="" id="" class="currency__select"
+          v-model="graphSelect">
+            <option>Bitcoin (BTC)</option>
+            <option>Ethereum (ETH)</option>
+            <option>US dollar (USD)</option>
           </select>
         <!-- </div> -->
+        
       </div>
     </div>
     <!-- /.graph -->
@@ -68,7 +70,9 @@ export default {
       briefcase: 'Валютный портфель',
       currencyInput: '',
       currencyOutput: '',
-      currencySelect: '',
+      currencySelectInput: 'Bitcoin (BTC)',
+      currencySelectOutput: 'US dollar (USD)',
+      graphSelect: 'Bitcoin (BTC)',
     }
   },
 
